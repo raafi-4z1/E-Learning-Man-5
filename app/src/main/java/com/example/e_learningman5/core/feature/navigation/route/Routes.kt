@@ -1,4 +1,4 @@
-package com.example.e_learningman5.core.features.navigation.route
+package com.example.e_learningman5.core.feature.navigation.route
 
 sealed class Routes(val route: String) {
     data object SplashScreen : Routes("Splash")

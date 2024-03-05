@@ -1,4 +1,4 @@
-package com.example.e_learningman5.core.features.navigation.components
+package com.example.e_learningman5.core.feature.navigation.components
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -20,7 +20,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.e_learningman5.core.features.navigation.route.Routes
+import com.example.e_learningman5.core.feature.navigation.route.Routes
 
 object Utils {
     @Composable

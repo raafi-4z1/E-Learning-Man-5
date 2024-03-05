@@ -1,4 +1,4 @@
-package com.example.e_learningman5.profile.features.update
+package com.example.e_learningman5.profile.feature.update
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -11,17 +11,15 @@ import androidx.compose.ui.Modifier
 
 @Composable
 fun UpdatePasswordScreen(
-    onClick: (destination: String) -> Unit
+    onClick: () -> Unit
 ) {
-    val destination = "Edit Password"
-
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center,
     ) {
         Column {
             Text(text = "Edite Password Screen")
-            Button(onClick = { onClick(destination) }) {
+            Button(onClick = { onClick() }) {
                 Text(text = "Back")
             }
         }

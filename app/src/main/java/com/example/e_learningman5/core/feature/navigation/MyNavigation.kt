@@ -1,4 +1,4 @@
-package com.example.e_learningman5.core.features.navigation
+package com.example.e_learningman5.core.feature.navigation
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,17 +15,17 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navigation
-import com.example.e_learningman5.core.features.navigation.components.BottomNavBarComponent
-import com.example.e_learningman5.core.features.navigation.components.TopAppBarComponent
-import com.example.e_learningman5.core.features.navigation.graph.Graph
-import com.example.e_learningman5.core.features.navigation.route.Routes
-import com.example.e_learningman5.core.features.splash.SplashScreenCompose
+import com.example.e_learningman5.core.feature.navigation.components.BottomNavBarComponent
+import com.example.e_learningman5.core.feature.navigation.components.TopAppBarComponent
+import com.example.e_learningman5.core.feature.navigation.graph.Graph
+import com.example.e_learningman5.core.feature.navigation.route.Routes
+import com.example.e_learningman5.core.feature.splash.SplashScreenCompose
 import com.example.e_learningman5.home.features.detail.DetailScreen
 import com.example.e_learningman5.home.features.home.HomeScreen
-import com.example.e_learningman5.login.features.LoginScreen
-import com.example.e_learningman5.profile.features.profile.ProfileScreen
-import com.example.e_learningman5.profile.features.update.UpdatePasswordScreen
-import com.example.e_learningman5.profile.features.update.UpdateProfileScreen
+import com.example.e_learningman5.login.feature.LoginScreen
+import com.example.e_learningman5.profile.feature.profile.ProfileScreen
+import com.example.e_learningman5.profile.feature.update.UpdatePasswordScreen
+import com.example.e_learningman5.profile.feature.update.UpdateProfileScreen
 
 @Composable
 fun MyNavigation(navController: NavHostController = rememberNavController()) {
@@ -147,8 +147,8 @@ fun MyNavigation(navController: NavHostController = rememberNavController()) {
                 composable(route = Routes.UpdateProfileScreen.route) {
                     isEnableBottomBar = false
                     isEnableBackNavIcon = true
-                    UpdateProfileScreen { destination ->
-                        destinationRoute = destination
+                    destinationRoute = "Update Profile"
+                    UpdateProfileScreen {
                         navController.popBackStack()
                     }
                 }
@@ -156,8 +156,8 @@ fun MyNavigation(navController: NavHostController = rememberNavController()) {
                 composable(route = Routes.UpdatePasswordScreen.route) {
                     isEnableBottomBar = false
                     isEnableBackNavIcon = true
-                    UpdatePasswordScreen { destination ->
-                        destinationRoute = destination
+                    destinationRoute = "Update Password"
+                    UpdatePasswordScreen {
                         navController.popBackStack()
                     }
                 }

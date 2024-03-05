@@ -1,4 +1,4 @@
-package com.example.e_learningman5.core.features.navigation.graph
+package com.example.e_learningman5.core.feature.navigation.graph
 
 object Graph {
     const val ROOT = "root_graph"
