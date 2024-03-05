@@ -1,4 +1,4 @@
-package com.example.e_learningman5.profile.features.profile
+package com.example.e_learningman5.profile.feature.profile
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -10,7 +10,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.example.e_learningman5.core.features.navigation.components.Utils
+import com.example.e_learningman5.core.feature.navigation.components.Utils
 
 @Composable
 fun ProfileScreen(

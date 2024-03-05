@@ -1,4 +1,4 @@
-package com.example.e_learningman5.core.features.navigation.components
+package com.example.e_learningman5.core.feature.navigation.components
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack

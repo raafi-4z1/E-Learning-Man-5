@@ -1,4 +1,4 @@
-package com.example.e_learningman5.core.features.navigation.components
+package com.example.e_learningman5.core.feature.navigation.components
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.material3.Icon
@@ -11,9 +11,9 @@ import androidx.compose.runtime.getValue
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.example.e_learningman5.core.features.navigation.components.Utils.BottomItem
-import com.example.e_learningman5.core.features.navigation.components.Utils.myListScreen
-import com.example.e_learningman5.core.features.navigation.route.Routes
+import com.example.e_learningman5.core.feature.navigation.components.Utils.BottomItem
+import com.example.e_learningman5.core.feature.navigation.components.Utils.myListScreen
+import com.example.e_learningman5.core.feature.navigation.route.Routes
 
 @Composable
 fun BottomNavBarComponent(
