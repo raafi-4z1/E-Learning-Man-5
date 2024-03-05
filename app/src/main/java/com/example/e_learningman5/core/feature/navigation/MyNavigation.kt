@@ -20,8 +20,8 @@ import com.example.e_learningman5.core.feature.navigation.components.TopAppBarCo
 import com.example.e_learningman5.core.feature.navigation.graph.Graph
 import com.example.e_learningman5.core.feature.navigation.route.Routes
 import com.example.e_learningman5.core.feature.splash.SplashScreenCompose
-import com.example.e_learningman5.home.features.detail.DetailScreen
-import com.example.e_learningman5.home.features.home.HomeScreen
+import com.example.e_learningman5.home.feature.detail.DetailScreen
+import com.example.e_learningman5.home.feature.home.HomeScreen
 import com.example.e_learningman5.login.feature.LoginScreen
 import com.example.e_learningman5.profile.feature.profile.ProfileScreen
 import com.example.e_learningman5.profile.feature.update.UpdatePasswordScreen
