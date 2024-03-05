@@ -1,4 +1,4 @@
-package com.example.e_learningman5.home.features.detail
+package com.example.e_learningman5.home.feature.detail
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.padding
