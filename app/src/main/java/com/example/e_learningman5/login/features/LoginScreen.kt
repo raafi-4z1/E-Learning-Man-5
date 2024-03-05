@@ -1,4 +1,4 @@
-package com.example.e_learningman5.login.features
+package com.example.e_learningman5.login.feature
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
