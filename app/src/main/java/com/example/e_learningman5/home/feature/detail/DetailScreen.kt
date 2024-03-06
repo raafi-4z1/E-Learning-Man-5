@@ -22,8 +22,7 @@ fun DetailScreen() {
                     .padding(16.dp)
                     .clickable { },
                 onEvent = { }
-                )
-            }
+            )
         }
-    )
+    })
 }

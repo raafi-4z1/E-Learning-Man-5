@@ -88,7 +88,7 @@ fun ImageCard(
                         }
                     )
                     AssistChip(
-                        onClick = {  },
+                        onClick = { },
                         colors = AssistChipDefaults.assistChipColors(
                             leadingIconContentColor = MaterialTheme.colorScheme.onSurfaceVariant
                         ),

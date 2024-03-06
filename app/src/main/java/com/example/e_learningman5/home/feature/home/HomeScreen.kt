@@ -51,8 +51,10 @@ fun HomeScreen(
     if (isSheetOpen)
         ModalBottomSheet(
             sheetState = sheetState,
-            onDismissRequest = { isSheetOpen = false
-                               sheetState.hasExpandedState},
+            onDismissRequest = {
+                isSheetOpen = false
+                sheetState.hasExpandedState
+            },
             scrimColor = Color(0x00FFFFFF)
         ) {
             Image(
