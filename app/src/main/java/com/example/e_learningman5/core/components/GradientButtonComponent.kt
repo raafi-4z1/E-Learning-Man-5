@@ -18,24 +18,22 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.example.e_learningman5.core.components.Utils.gradientColorList
 
 @Composable
-fun GradientButton(
+fun GradientButtonComponent(
+    nameButton: String,
+    modifier: Modifier = Modifier,
     cornerRadius: Dp = 16.dp,
     roundedCornerShape: RoundedCornerShape = RoundedCornerShape(
         topStart = 30.dp,
         bottomEnd = 30.dp
     ),
-    gradientColors: List<Color> = listOf(
-        MaterialTheme.colorScheme.primary,
-        MaterialTheme.colorScheme.outline
-    ),
-    nameButton: String,
+    gradientColors: List<Color> = gradientColorList(),
     onClick: () -> Unit
 ) {
     Button(
-        modifier = Modifier
-            .fillMaxWidth(0.8f),
+        modifier = modifier,
         onClick = { onClick() },
         contentPadding = PaddingValues(),
         colors = ButtonDefaults.buttonColors(

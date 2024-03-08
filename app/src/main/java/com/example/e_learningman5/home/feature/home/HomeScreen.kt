@@ -19,21 +19,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
-import com.example.e_learningman5.home.components.ImageCard
+import com.example.e_learningman5.home.components.HomeCardComponent
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(
-    onClick: (String) -> Unit
-) {
+fun HomeScreen(onClick: (String) -> Unit) {
     val sheetState = rememberModalBottomSheetState()
-    var isSheetOpen by rememberSaveable {
-        mutableStateOf(false)
-    }
+    var isSheetOpen by rememberSaveable { mutableStateOf(false) }
 
     LazyVerticalGrid(columns = GridCells.Adaptive(300.dp), content = {
         items(20) { item ->
-            ImageCard(
+            HomeCardComponent(
                 title = "Bacon ipsum",
                 idPhoto = item,
                 description = "Bacon ipsum dolor amet pork shankle beef andouille ball tip. Meatball corned beef swine, strip steak bacon jerky doner tongue biltong pork loin drumstick sausage hamburger burgdoggen.",

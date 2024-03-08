@@ -18,23 +18,17 @@ import com.example.e_learningman5.R
 import kotlinx.coroutines.delay
 
 @Composable
-fun SplashScreenCompose(
-    onEvent: () -> Unit
-) {
-    val alpha = remember {
-        Animatable(0f)
-    }
+fun SplashScreenCompose(onEvent: () -> Unit) {
+    val alpha = remember { Animatable(0f) }
     LaunchedEffect(key1 = true, block = {
-        alpha.animateTo(
-            1f,
-            animationSpec = tween(1500)
-        )
+        alpha.animateTo(1f, animationSpec = tween(1500))
         delay(3000)
         onEvent()
     })
+
     Box(
         modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center,
+        contentAlignment = Alignment.Center
     ) {
         Image(
             modifier = Modifier

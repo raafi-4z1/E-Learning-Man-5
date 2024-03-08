@@ -1,5 +1,6 @@
 package com.example.e_learningman5.core.feature.navigation
 
+import android.util.Log
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -106,21 +107,23 @@ fun MyNavigation(navController: NavHostController = rememberNavController()) {
                     composable(route = Routes.ProfileScreen.route) {
                         isEnableBottomBar = true
                         isEnableBackNavIcon = false
-                        ProfileScreen(
-                            onClickUpProfile = {
-                                navController.navigate(Routes.UpdateProfileScreen.route)
-                            },
-                            onClickUpPass = {
-                                navController.navigate(Routes.UpdatePasswordScreen.route)
-                            },
-                            onClickExit = {
-                                navController.navigate(Graph.ROOT) {
-                                    popUpTo(Graph.HOME) {
-                                        inclusive = true
+                        ProfileScreen { onClick ->
+                            when (onClick) {
+                                Routes.UpdateProfileScreen.route ->
+                                    navController.navigate(Routes.UpdateProfileScreen.route)
+
+                                Routes.UpdatePasswordScreen.route ->
+                                    navController.navigate(Routes.UpdatePasswordScreen.route)
+
+                                "LOGOUT" -> {
+                                    navController.navigate(Graph.ROOT) {
+                                        popUpTo(Graph.HOME) {
+                                            inclusive = true
+                                        }
                                     }
                                 }
                             }
-                        )
+                        }
                     }
                 }
 
@@ -149,6 +152,8 @@ fun MyNavigation(navController: NavHostController = rememberNavController()) {
                     isEnableBackNavIcon = true
                     destinationRoute = "Update Profile"
                     UpdateProfileScreen {
+                        // Update Profile
+                        Log.d("Update Profile", "click")
                         navController.popBackStack()
                     }
                 }
@@ -158,6 +163,8 @@ fun MyNavigation(navController: NavHostController = rememberNavController()) {
                     isEnableBackNavIcon = true
                     destinationRoute = "Update Password"
                     UpdatePasswordScreen {
+                        // Update Password
+                        Log.d("Update Password", "click")
                         navController.popBackStack()
                     }
                 }

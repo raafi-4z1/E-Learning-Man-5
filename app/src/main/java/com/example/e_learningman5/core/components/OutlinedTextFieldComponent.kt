@@ -1,7 +1,5 @@
 package com.example.e_learningman5.core.components
 
-import android.annotation.SuppressLint
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.MaterialTheme
@@ -16,13 +14,14 @@ fun OutlinedTextFieldComponent(
     titleTextField: String,
     value: String,
     valueError: String? = null,
+    modifier: Modifier,
+    mLines: Int = 1,
     keyboardOptions: KeyboardOptions,
-    @SuppressLint("ModifierParameter")
-    modifier: Modifier = Modifier.fillMaxWidth(0.8f),
     onValueChange: (String) -> Unit
 ) {
     OutlinedTextField(
         value = value,
+        maxLines = mLines,
         onValueChange = { onValueChange(it) },
         shape = RoundedCornerShape(topEnd = 12.dp, bottomStart = 12.dp),
         label = {

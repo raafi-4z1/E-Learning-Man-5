@@ -13,8 +13,6 @@ import androidx.compose.material.icons.outlined.Share
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.AssistChipDefaults
 import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -26,9 +24,8 @@ import coil.compose.rememberAsyncImagePainter
 import com.google.accompanist.flowlayout.FlowRow
 import com.google.accompanist.flowlayout.SizeMode
 
-@ExperimentalMaterial3Api
 @Composable
-fun ImageCard(
+fun HomeCardComponent(
     title: String,
     description: String,
     modifier: Modifier = Modifier,
@@ -38,15 +35,10 @@ fun ImageCard(
 ) {
     Card(
         modifier = modifier,
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant,
-        ),
         shape = MaterialTheme.shapes.large
     ) {
         Image(
-            painter = rememberAsyncImagePainter(
-                model = "https://picsum.photos/id/$idPhoto/300/200"
-            ),
+            painter = rememberAsyncImagePainter(model = "https://picsum.photos/id/$idPhoto/300/200"),
             contentDescription = null,
             modifier = Modifier
                 .clip(MaterialTheme.shapes.large)

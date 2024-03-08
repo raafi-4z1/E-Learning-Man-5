@@ -11,8 +11,8 @@ import androidx.compose.runtime.getValue
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.example.e_learningman5.core.feature.navigation.components.Utils.BottomItem
-import com.example.e_learningman5.core.feature.navigation.components.Utils.myListScreen
+import com.example.e_learningman5.core.components.Utils.BottomItem
+import com.example.e_learningman5.core.components.Utils.myListScreen
 import com.example.e_learningman5.core.feature.navigation.route.Routes
 
 @Composable

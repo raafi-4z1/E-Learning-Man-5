@@ -1,4 +1,4 @@
-package com.example.e_learningman5.core.feature.navigation.components
+package com.example.e_learningman5.core.components
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -16,6 +16,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -73,6 +74,12 @@ object Utils {
             }
         )
     }
+
+    @Composable
+    fun gradientColorList(): List<Color> = listOf(
+        MaterialTheme.colorScheme.primary,
+        MaterialTheme.colorScheme.outline
+    )
 
     fun myListScreen() = listOf(
         BottomItem(

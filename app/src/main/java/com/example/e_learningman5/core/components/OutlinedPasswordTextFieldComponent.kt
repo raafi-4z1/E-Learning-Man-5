@@ -1,7 +1,5 @@
 package com.example.e_learningman5.core.components
 
-import android.annotation.SuppressLint
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -28,10 +26,9 @@ fun OutlinedPasswordTextFieldComponent(
     titleTextField: String,
     value: String,
     valueError: String? = null,
+    modifier: Modifier,
     keyboardOptions: KeyboardOptions,
     isIconPasswordHidden: Boolean = true,
-    @SuppressLint("ModifierParameter")
-    modifier: Modifier = Modifier.fillMaxWidth(0.8f),
     onValueChange: (String) -> Unit
 ) {
     if (isIconPasswordHidden) {
@@ -41,6 +38,7 @@ fun OutlinedPasswordTextFieldComponent(
         OutlinedTextField(
             value = value,
             onValueChange = { onValueChange(it) },
+            maxLines = 1,
             shape = RoundedCornerShape(topEnd = 12.dp, bottomStart = 12.dp),
             label = {
                 Text(
@@ -71,6 +69,7 @@ fun OutlinedPasswordTextFieldComponent(
         OutlinedTextField(
             value = value,
             onValueChange = { onValueChange(it) },
+            maxLines = 1,
             shape = RoundedCornerShape(topEnd = 12.dp, bottomStart = 12.dp),
             label = {
                 Text(

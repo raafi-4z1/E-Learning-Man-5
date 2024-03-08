@@ -27,7 +27,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.e_learningman5.R
-import com.example.e_learningman5.core.components.GradientButton
+import com.example.e_learningman5.core.components.GradientButtonComponent
 import com.example.e_learningman5.core.components.OutlinedPasswordTextFieldComponent
 import com.example.e_learningman5.core.components.OutlinedTextFieldComponent
 import com.example.e_learningman5.login.domain.model.RegistrationFormEvent
@@ -37,12 +37,11 @@ import com.example.e_learningman5.login.domain.model.RegistrationFormEvent
  * Login Component Design, by: https://github.com/BoltUIX/Compose-User-Registration-Login-Reset-password-pages-with-UI-UX
  * */
 @Composable
-fun LoginScreen(
-    onClick: () -> Unit
-) {
+fun LoginScreen(onClick: () -> Unit) {
     val viewModel = viewModel<LoginViewModel>()
     val state = viewModel.state
     val context = LocalContext.current
+
     LaunchedEffect(key1 = context) {
         viewModel.validationEvents.collect { event ->
             when (event) {
@@ -73,6 +72,7 @@ fun LoginScreen(
                     .fillMaxWidth()
             )
             Spacer(modifier = Modifier.height(50.dp))
+
             Text(
                 text = "Sign In",
                 textAlign = TextAlign.Center,
@@ -81,9 +81,10 @@ fun LoginScreen(
                 style = MaterialTheme.typography.headlineSmall,
                 color = MaterialTheme.colorScheme.primary,
             )
-
             Spacer(modifier = Modifier.height(8.dp))
+
             OutlinedTextFieldComponent(
+                modifier = Modifier.fillMaxWidth(0.8f),
                 titleTextField = "Email Address",
                 value = state.email,
                 valueError = state.emailError,
@@ -96,6 +97,7 @@ fun LoginScreen(
             Spacer(modifier = Modifier.height(3.dp))
 
             OutlinedPasswordTextFieldComponent(
+                modifier = Modifier.fillMaxWidth(0.8f),
                 titleTextField = "Enter Password",
                 value = state.password,
                 valueError = state.passwordError,
@@ -106,10 +108,13 @@ fun LoginScreen(
                 )
             )
             Spacer(modifier = Modifier.height(45.dp))
-            GradientButton(
+
+            GradientButtonComponent(
+                modifier = Modifier.fillMaxWidth(0.8f),
                 nameButton = "Login",
                 onClick = { viewModel.onEvent(RegistrationFormEvent.Submit) }
             )
+            Spacer(modifier = Modifier.height(45.dp))
         }
     }
 }
