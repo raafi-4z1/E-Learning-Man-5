@@ -1,5 +1,6 @@
 package com.example.e_learningman5.login.feature
 
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -25,27 +26,36 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.e_learningman5.R
 import com.example.e_learningman5.core.components.GradientButtonComponent
 import com.example.e_learningman5.core.components.OutlinedPasswordTextFieldComponent
 import com.example.e_learningman5.core.components.OutlinedTextFieldComponent
 import com.example.e_learningman5.login.domain.model.RegistrationFormEvent
+import com.example.e_learningman5.login.domain.model.ValidationEvent
+import org.koin.androidx.compose.koinViewModel
 
 /**
  *
  * Login Component Design, by: https://github.com/BoltUIX/Compose-User-Registration-Login-Reset-password-pages-with-UI-UX
  * */
 @Composable
-fun LoginScreen(onClick: () -> Unit) {
-    val viewModel = viewModel<LoginViewModel>()
+fun LoginScreen(
+    viewModel: LoginViewModel = koinViewModel(),
+    onClick: () -> Unit
+) {
     val state = viewModel.state
     val context = LocalContext.current
 
     LaunchedEffect(key1 = context) {
         viewModel.validationEvents.collect { event ->
             when (event) {
-                is LoginViewModel.ValidationEvent.Success -> onClick()
+                is ValidationEvent.Success -> onClick()
+
+                is ValidationEvent.Error -> Toast.makeText(
+                    context,
+                    event.message,
+                    Toast.LENGTH_LONG
+                ).show()
             }
         }
     }

@@ -1,8 +1,11 @@
-package com.example.e_learningman5.core.domain.use_case
+package com.example.e_learningman5.login.domain.use_case
 
-class ValidatePassword {
-    fun execute(password: String): ValidationResult {
-        if (password.length < 8) {
+import com.example.e_learningman5.core.domain.use_case.validate.ValidationResult
+import com.example.e_learningman5.core.domain.use_case.validate.ValidationUseCase
+
+class ValidatePassword: ValidationUseCase {
+    override suspend fun execute(param: String): ValidationResult {
+        if (param.length < 8) {
             return ValidationResult(
                 successful = false,
                 errorMessage = "The password needs to consist of at least 8 characters"

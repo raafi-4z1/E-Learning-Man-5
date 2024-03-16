@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -9,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.e_learningman5"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -70,15 +71,36 @@ dependencies {
     // Navigation
     implementation("androidx.navigation:navigation-compose:2.7.7")
 
-//    implementation("androidx.compose.material3:material3:1.0.0-alpha12")
-    implementation("androidx.compose.material3:material3")
     implementation("androidx.compose.material3:material3-window-size-class:1.2.0")
     implementation("com.google.accompanist:accompanist-flowlayout:0.24.8-beta")
 
     // Coil for Image
-    implementation("io.coil-kt:coil:2.5.0")
     implementation("io.coil-kt:coil-compose:2.5.0")
+
+    // Koin
+    implementation("io.insert-koin:koin-android:3.4.3")
+    implementation("io.insert-koin:koin-core:3.4.3")
+    testImplementation("io.insert-koin:koin-test:3.4.3")
+    implementation("io.insert-koin:koin-android-compat:3.4.3")
+    testImplementation("io.insert-koin:koin-test-junit4:3.4.3")
+    implementation("io.insert-koin:koin-androidx-compose:3.4.3")
 
     // ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
+
+    // Retrofit2
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.retrofit2:converter-scalars:2.9.0")
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
+
+    // Encrypted Preferences
+    implementation("com.pddstudio:encrypted-preferences:1.3.0")
+
+    // Room
+    implementation("androidx.room:room-runtime:2.6.1")
+    annotationProcessor("androidx.room:room-compiler:2.6.1")
+    kapt("androidx.room:room-compiler:2.6.1")
+    implementation("androidx.room:room-ktx:2.6.1")
 }
