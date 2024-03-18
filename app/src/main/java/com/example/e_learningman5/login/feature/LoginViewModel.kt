@@ -8,12 +8,10 @@ import androidx.lifecycle.viewModelScope
 import com.example.e_learningman5.core.data.remote.response.MyResponse
 import com.example.e_learningman5.core.domain.use_case.login.LoginUseCase
 import com.example.e_learningman5.core.domain.use_case.validate.ValidationUseCase
-import com.example.e_learningman5.core.utils.ErrorsMessage
+import com.example.e_learningman5.core.util.ErrorsMessage
 import com.example.e_learningman5.login.domain.model.RegistrationFormEvent
 import com.example.e_learningman5.login.domain.model.RegistrationFormState
 import com.example.e_learningman5.login.domain.model.ValidationEvent
-import com.example.e_learningman5.login.domain.use_case.ValidateEmail
-import com.example.e_learningman5.login.domain.use_case.ValidatePassword
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
@@ -25,20 +23,24 @@ import kotlinx.coroutines.launch
  * */
 class LoginViewModel(
     private val loginUseCase: LoginUseCase,
-    private val validateEmail: ValidationUseCase = ValidateEmail(),
-    private val validatePassword: ValidationUseCase = ValidatePassword()
+    private val validateEmail: ValidationUseCase,
+    private val validatePassword: ValidationUseCase
 ) : ViewModel() {
     var state by mutableStateOf(RegistrationFormState())
 
     private val validationEventChannel = Channel<ValidationEvent>()
     val validationEvents = validationEventChannel.receiveAsFlow()
 
-    init { checkSession() }
+    init {
+        checkSession()
+    }
 
     private fun checkSession() {
         viewModelScope.launch(Dispatchers.IO) {
             loginUseCase.getSession().let {
-                if (it != null)
+                if (it == null)
+                    validationEventChannel.send(ValidationEvent.Error("null"))
+                else
                     if (it)
                         validationEventChannel.send(ValidationEvent.Success)
                     else

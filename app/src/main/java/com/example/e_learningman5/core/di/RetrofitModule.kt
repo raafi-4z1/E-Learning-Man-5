@@ -4,7 +4,7 @@ import android.content.Context
 import com.example.e_learningman5.core.data.remote.AppApiService
 import com.example.e_learningman5.core.network.interceptor.HeaderInterceptor
 import com.example.e_learningman5.core.network.interceptor.NetworkConnectionInterceptor
-import com.example.e_learningman5.core.utils.Constants
+import com.example.e_learningman5.core.util.Constants
 import okhttp3.OkHttpClient
 import okhttp3.ResponseBody
 import okhttp3.logging.HttpLoggingInterceptor
@@ -20,10 +20,10 @@ import java.util.concurrent.TimeUnit
 
 /**
  *
- * architecture Retrofit and DI Koin, by: https://github.com/Prashant-Chandel/Jetpack-compose-MVVM-Clean_Architect-Example-with-koin
+ * architecture Retrofit and Shared Preferences, by: https://github.com/Prashant-Chandel/Jetpack-compose-MVVM-Clean_Architect-Example-with-koin
  * */
 const val url = "MAN5Url"
-val serviceModule = module {
+val remoteModule = module {
     single { provideOkHttpClient(androidContext()) }
     //Retrofit instances
     single(named(url)) {

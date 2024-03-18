@@ -11,6 +11,7 @@ interface LoginRepository {
         email: String,
         password: String
     ): Flow<MyResponse<ApiResponse<LoginResponse>>>
+
     suspend fun setLogin(nis: String, token: String)
     suspend fun getNis(): String?
     suspend fun setSession(nis: String)

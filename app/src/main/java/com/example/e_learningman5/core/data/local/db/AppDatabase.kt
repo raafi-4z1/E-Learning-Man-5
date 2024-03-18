@@ -8,7 +8,7 @@ import androidx.room.TypeConverters
 import com.example.e_learningman5.core.data.local.db.converter.Converters
 import com.example.e_learningman5.core.data.local.db.dao.AppDao
 import com.example.e_learningman5.core.data.local.db.entities.StudentEntity
-import com.example.e_learningman5.core.utils.Constants.Companion.DATABASE_NAME
+import com.example.e_learningman5.core.util.Constants.Companion.DATABASE_NAME
 
 @Database(entities = [StudentEntity::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)

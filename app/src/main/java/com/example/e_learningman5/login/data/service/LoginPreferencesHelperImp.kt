@@ -2,7 +2,7 @@ package com.example.e_learningman5.login.data.service
 
 import android.content.SharedPreferences
 import com.example.e_learningman5.core.data.services.login.LoginPreferencesHelper
-import com.example.e_learningman5.core.utils.Constants
+import com.example.e_learningman5.core.util.Constants
 
 class LoginPreferencesHelperImp(
     private val sharedPreferences: SharedPreferences

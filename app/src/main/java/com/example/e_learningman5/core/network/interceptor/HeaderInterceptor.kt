@@ -6,8 +6,8 @@ import okhttp3.Response
 
 class HeaderInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
-        val mutableHeaders : MutableMap<String, String> = chain.request().headers.toMap().
-        toMutableMap()
+        val mutableHeaders: MutableMap<String, String> =
+            chain.request().headers.toMap().toMutableMap()
 
         /**
          * Constant reoccuring headers to be placed here

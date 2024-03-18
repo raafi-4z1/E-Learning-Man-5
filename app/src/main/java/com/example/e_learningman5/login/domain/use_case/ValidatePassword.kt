@@ -3,7 +3,7 @@ package com.example.e_learningman5.login.domain.use_case
 import com.example.e_learningman5.core.domain.use_case.validate.ValidationResult
 import com.example.e_learningman5.core.domain.use_case.validate.ValidationUseCase
 
-class ValidatePassword: ValidationUseCase {
+class ValidatePassword : ValidationUseCase {
     override suspend fun execute(param: String): ValidationResult {
         if (param.length < 8) {
             return ValidationResult(

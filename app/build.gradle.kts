@@ -1,7 +1,15 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
+}
+
+val secretPropertiesFile: File = rootProject.file("secrets.properties")
+val sitProps = Properties()
+secretPropertiesFile.inputStream().use { input ->
+    sitProps.load(input)
 }
 
 android {
@@ -19,6 +27,11 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        buildConfigField("String", "prefPassword", sitProps.getProperty("prefPassword"))
+        buildConfigField("String", "prefName", sitProps.getProperty("prefName"))
+        buildConfigField("String", "IMAGE_BASE_URL", sitProps.getProperty("IMAGE_BASE_URL"))
+        buildConfigField("String", "BASE_URL", sitProps.getProperty("BASE_URL"))
     }
 
     buildTypes {
@@ -39,6 +52,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -71,19 +85,19 @@ dependencies {
     // Navigation
     implementation("androidx.navigation:navigation-compose:2.7.7")
 
-    implementation("androidx.compose.material3:material3-window-size-class:1.2.0")
+    implementation("androidx.compose.material3:material3-window-size-class:1.2.1")
     implementation("com.google.accompanist:accompanist-flowlayout:0.24.8-beta")
 
     // Coil for Image
     implementation("io.coil-kt:coil-compose:2.5.0")
 
     // Koin
-    implementation("io.insert-koin:koin-android:3.4.3")
-    implementation("io.insert-koin:koin-core:3.4.3")
-    testImplementation("io.insert-koin:koin-test:3.4.3")
-    implementation("io.insert-koin:koin-android-compat:3.4.3")
-    testImplementation("io.insert-koin:koin-test-junit4:3.4.3")
-    implementation("io.insert-koin:koin-androidx-compose:3.4.3")
+    implementation("io.insert-koin:koin-android:3.5.0")
+    implementation("io.insert-koin:koin-core:3.5.0")
+    testImplementation("io.insert-koin:koin-test:3.5.0")
+    implementation("io.insert-koin:koin-android-compat:3.5.0")
+    testImplementation("io.insert-koin:koin-test-junit4:3.5.0")
+    implementation("io.insert-koin:koin-androidx-compose:3.5.0")
 
     // ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")

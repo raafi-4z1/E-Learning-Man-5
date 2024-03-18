@@ -17,7 +17,7 @@ import com.example.e_learningman5.R
  * all skill sets to choose and use type with purpose.
  *
  * https://fonts.google.com/
-*/
+ */
 val jostFontFamily = FontFamily(
     Font(R.font.jost_book, FontWeight.Normal),
     Font(R.font.jost_book, FontWeight.Light),

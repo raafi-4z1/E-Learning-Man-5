@@ -32,7 +32,6 @@ import com.example.e_learningman5.core.components.OutlinedPasswordTextFieldCompo
 import com.example.e_learningman5.core.components.OutlinedTextFieldComponent
 import com.example.e_learningman5.login.domain.model.RegistrationFormEvent
 import com.example.e_learningman5.login.domain.model.ValidationEvent
-import org.koin.androidx.compose.koinViewModel
 
 /**
  *
@@ -40,11 +39,15 @@ import org.koin.androidx.compose.koinViewModel
  * */
 @Composable
 fun LoginScreen(
-    viewModel: LoginViewModel = koinViewModel(),
+    viewModel: LoginViewModel,
+    paramSession: String,
     onClick: () -> Unit
 ) {
     val state = viewModel.state
     val context = LocalContext.current
+
+    if (paramSession != "0")
+        Toast.makeText(context, paramSession, Toast.LENGTH_LONG).show()
 
     LaunchedEffect(key1 = context) {
         viewModel.validationEvents.collect { event ->
@@ -61,18 +64,17 @@ fun LoginScreen(
     }
 
     Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(top = 10.dp),
+        modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.TopCenter
     ) {
         Column(
             modifier = Modifier
-                .padding(16.dp)
+                .padding(horizontal = 16.dp)
                 .fillMaxWidth()
                 .verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            Spacer(modifier = Modifier.height(26.dp))
             Image(
                 painter = painterResource(id = R.drawable.man5),
                 contentDescription = "Logo MAN 5",

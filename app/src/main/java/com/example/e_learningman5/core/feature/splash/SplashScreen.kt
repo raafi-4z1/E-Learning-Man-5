@@ -15,16 +15,35 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.e_learningman5.R
+import com.example.e_learningman5.login.domain.model.ValidationEvent
+import com.example.e_learningman5.login.feature.LoginViewModel
 import kotlinx.coroutines.delay
 
 @Composable
-fun SplashScreenCompose(onEvent: () -> Unit) {
+fun SplashScreenCompose(
+    viewModel: LoginViewModel,
+    onSession: () -> Unit,
+    onEvent: (String?) -> Unit
+) {
     val alpha = remember { Animatable(0f) }
-    LaunchedEffect(key1 = true, block = {
+    LaunchedEffect(key1 = true) {
         alpha.animateTo(1f, animationSpec = tween(1500))
-        delay(3000)
-        onEvent()
-    })
+        viewModel.validationEvents.collect { event ->
+            when (event) {
+                // pernah login kurang dari 5 hari
+                is ValidationEvent.Success -> onSession()
+
+                // lebih dari 5 hari
+                is ValidationEvent.Error -> {
+                    delay(3000)
+                    if (event.message == "null") {
+                        // tidak pernah login / keluar
+                        onEvent("0")
+                    } else onEvent(event.message)
+                }
+            }
+        }
+    }
 
     Box(
         modifier = Modifier.fillMaxSize(),

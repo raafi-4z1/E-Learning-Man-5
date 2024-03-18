@@ -20,6 +20,7 @@ class NetworkConnectionInterceptor(context: Context) : Interceptor {
                 Log.d("NETWORK", "Network status: Disconnected")
                 throw NoConnectivityException()
             }
+
             else -> {
                 Log.d("NETWORK", "Network status: Connected")
                 val builder = chain.request().newBuilder()
@@ -46,7 +47,7 @@ class NetworkConnectionInterceptor(context: Context) : Interceptor {
 
 class NoConnectivityException : IOException() {
     override val message: String
-        get() ="No internet connection"
+        get() = "No internet connection"
 
     override fun getLocalizedMessage(): String {
         return "No internet connection"

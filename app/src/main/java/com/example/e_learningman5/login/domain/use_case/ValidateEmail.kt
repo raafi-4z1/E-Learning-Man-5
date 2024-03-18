@@ -4,7 +4,7 @@ import android.util.Patterns
 import com.example.e_learningman5.core.domain.use_case.validate.ValidationResult
 import com.example.e_learningman5.core.domain.use_case.validate.ValidationUseCase
 
-class ValidateEmail: ValidationUseCase {
+class ValidateEmail : ValidationUseCase {
     override suspend fun execute(param: String): ValidationResult {
         if (param.isBlank()) {
             return ValidationResult(
