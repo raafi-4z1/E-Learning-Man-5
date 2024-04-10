@@ -9,6 +9,7 @@ import java.time.LocalDateTime
 data class StudentEntity(
     val name: String,
     val email: String,
+    val image: String? = null,
     @ColumnInfo(name = "last_login")
     val lastLogin: LocalDateTime? = null,
     val phone: String? = null,

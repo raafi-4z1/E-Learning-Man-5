@@ -1,4 +1,4 @@
-package com.example.e_learningman5.home.feature.detail
+package com.example.e_learningman5.main.feature.home.screen.detail
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.padding
@@ -7,7 +7,7 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.e_learningman5.home.components.HomeCardComponent
+import com.example.e_learningman5.main.feature.home.components.HomeCardComponent
 
 @Composable
 fun DetailScreen() {

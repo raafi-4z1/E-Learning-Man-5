@@ -1,4 +1,4 @@
-package com.example.e_learningman5.home.components
+package com.example.e_learningman5.main.feature.home.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column

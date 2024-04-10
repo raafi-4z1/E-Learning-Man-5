@@ -24,11 +24,11 @@ class LoginRepositoryImpl(
             emit(MyResponse.Loading())
             with(loginApiServiceHelper.getDataLogin(email, password)) {
                 if (isSuccessful) {
-                    emit(MyResponse.Success(this.body()))
-                    this.body()?.let {
-                        it.data.siswa.let { siswa -> setLogin(siswa.nis, siswa.token) }
+                    this.body()?.data?.let {
+                        it.siswa.let { siswa -> setLogin(siswa.nis, siswa.token) }
                         loginDatabaseHelper.insertDataLogin(it)
                     }
+                    emit(MyResponse.Success(this.body()))
                 } else {
                     val errorMessage = try {
                         this.errorBody()?.string()?.let {

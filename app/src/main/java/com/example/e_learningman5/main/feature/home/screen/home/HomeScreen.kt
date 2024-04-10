@@ -1,4 +1,4 @@
-package com.example.e_learningman5.home.feature.home
+package com.example.e_learningman5.main.feature.home.screen.home
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -19,7 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
-import com.example.e_learningman5.home.components.HomeCardComponent
+import com.example.e_learningman5.main.feature.home.components.HomeCardComponent
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

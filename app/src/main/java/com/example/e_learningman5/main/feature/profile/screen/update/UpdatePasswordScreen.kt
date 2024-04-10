@@ -1,4 +1,4 @@
-package com.example.e_learningman5.profile.feature.update
+package com.example.e_learningman5.main.feature.profile.screen.update
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column

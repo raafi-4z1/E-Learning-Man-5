@@ -1,4 +1,4 @@
-package com.example.e_learningman5.profile.feature.profile
+package com.example.e_learningman5.main.feature.profile.screen.profile
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
